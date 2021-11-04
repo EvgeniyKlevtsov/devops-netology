@@ -8,3 +8,5 @@
  Файлы содержащие важные данные .tfvars
  Файлы локального переопределения ресурсов override.tf и override.tf.json и название которых заканчивается на _override.tf и _override.tf.json
  Конфигурационные файлы CLI .terraformrc и terraform.rc
+
+добавив новую строчку
