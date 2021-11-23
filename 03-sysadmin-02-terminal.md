@@ -10,13 +10,15 @@
   
   Поиск по `man wc -l` выдал информацию, что данная команда, с атрибутом `-l`, используется для вывода количества вхождений того, что мы передаём в strout grep-а. У grep есть собственный параметр, отвечающий за аналогичный вывод `-c`.
     **vagrant@vagrant**:**~**$ cat test_bash
+    
     if [[ -d /tmp ]];
     hgfghdfgh
     fhfgyuhfght
     123
-    **vagrant@vagrant**:**~**$ grep 123 test_bash -c
+   **vagrant@vagrant**:**~**$ grep 123 test_bash -c
     1
-    **vagrant@vagrant**:**~**$ grep 123 test_bash |wc -l
+    
+   **vagrant@vagrant**:**~**$ grep 123 test_bash |wc -l
     1
     
 ## 3. Какой процесс с PID 1 является родителем для всех процессов в вашей виртуальной машине Ubuntu 20.04?
@@ -39,9 +41,12 @@ stderr имеет параметр 2, поэтому нам необходимо
 ## 6. Получится ли вывести находясь в графическом режиме данные из PTY в какой-либо из эмуляторов TTY? Сможете ли вы наблюдать выводимые данные?
    
    Вывести получится при использовании перенаправления вывода:
+
 **evgeniy@evgeniy-ms7788**:~$ tty
 /dev/pts/0
+
 **evgeniy@evgeniy-ms7788**:~$ echo Hello from pts0 to tty3 >/dev/tty3
+
 **evgeniy@evgeniy-ms7788**:~$  
      но наблюдать в графическом режиме не получиться, нужно переключиться в контекст TTY : Выводом будет Hello from pts0 to tty3
  
@@ -59,6 +64,7 @@ stderr имеет параметр 2, поэтому нам необходимо
 Воспользуемся потоком 5, созданным в предыдущем задании. Перенаправим вывод следующим образом: в поток 5 мы перенаправляем `stdout`, `stdin` перенаправляем в `stderr`, а `stderr` в вновь созданный поток 5. Если мы вызовем какую-нибудь ошибку > результат (stderr) будет записан в файл, при этом мы получим отображение ошибки на экране :
 
 **evgeniy@evgeniy-ms7788:**~$ toor 5>&1 1>&2 2>&5 | tee test.txt
+
 bash: toor: команда не найдена  
         
 ## 9. Что выведет команда  `cat /proc/$$/environ`? Как еще можно получить аналогичный по содержанию вывод?
@@ -74,11 +80,13 @@ bash: toor: команда не найдена
 ## 11. Узнайте, какую наиболее старшую версию набора инструкций SSE поддерживает ваш процессор с помощью  `/proc/cpuinfo`.
  
   **vagrant@vagrant**:**~**$ grep sse /proc/cpuinfo
+ 
  sse4_2
     
 ## 12. При открытии нового окна терминала и vagrant ssh создается новая сессия и выделяется pty. Это можно подтвердить командой tty, которая упоминалась в лекции 3.2.
 Однако:
     vagrant@netology1:~$ ssh localhost 'tty'
+    
     not a tty
  Почитайте, почему так происходит, и как изменить поведение.
  
@@ -86,9 +94,11 @@ bash: toor: команда не найдена
 для запуска можно добавить -t  , и команда исполняется c принудительным созданием псевдотерминала с созданием SHAkey
     
 **vagrant@vagrant**:**~**$ ssh -t localhost 'tty'
-    vagrant@localhost's password: 
-    /dev/pts/0
-    Connection to localhost closed.
+    
+  vagrant@localhost's password: 
+   /dev/pts/0
+  
+  Connection to localhost closed.
     **vagrant@vagrant**:**~**$ 
     
 ## 13. Бывает, что есть необходимость переместить запущенный процесс из одной сессии в другую. Попробуйте сделать это, воспользовавшись  `reptyr`. Например, так можно перенести в screen процесс, который вы запустили по ошибке в обычной SSH-сессии.
@@ -98,12 +108,3 @@ bash: toor: команда не найдена
 ## 14.  `sudo echo string > /root/new_file`  не даст выполнить перенаправление под обычным пользователем, так как перенаправлением занимается процесс shell'а, который запущен без  `sudo`  под вашим пользователем. Для решения данной проблемы можно использовать конструкцию  `echo string | sudo tee /root/new_file`. Узнайте что делает команда  `tee`  и почему в отличие от  `sudo echo`  команда с  `sudo tee`  будет работать.
 
 `tee` используется для перенаправления потока ввода в вывод. Команда не является встроенной в оболочку bash, которая запускается при старте системы, поэтому для её работы root-прав не требуется.
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY3OTc3NjUyOCwxOTQ0NzcxODY1LC0xOD
-YwMjI5MzMxLC0xODc5Njg3OTMsLTIxMTg4MDA2NiwtMTAyNDk2
-NzExMSwzOTA1NTU5NTMsLTQ0NzIwMDQ2MiwxMjUyNDIyMTY4LC
-05ODQzMDIxMTcsLTE4ODUwMTkyODQsLTY2NzI3MTcxOSwyMDg4
-Njg4MDkyLDIwMDQ5NjU1OTYsMTA4NjU3OTEzNiw5ODg3NjE3MT
-MsLTEzNjY4ODE4NDAsLTE0MjAxMDAzMDMsLTE2MzMxMzQyMiwz
-ODIzOTA1MThdfQ==
--->
