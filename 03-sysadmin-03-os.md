@@ -2,7 +2,10 @@
 
 ## 1. Какой системный вызов делает команда cd? В прошлом ДЗ мы выяснили, что cd не является самостоятельной программой, это shell builtin, поэтому запустить strace непосредственно на cd не получится. Тем не менее, вы можете запустить strace на /bin/bash -c 'cd /tmp'. В этом случае вы увидите полный список системных вызовов, которые делает сам bash при старте. Вам нужно найти тот единственный, который относится именно к cd.
 
-`evgeniy@evgeniy-ms7788:~$ strace /bin/bash -c 'cd /tmp' 2>&1 | grep tmp
+evgeniy@evgeniy-ms7788:~$ strace /bin/bash -c 'cd /tmp' 2>&1 | grep tmp
+
 execve("/bin/bash", ["/bin/bash", "-c", "cd /tmp"], 0x7ffd67766470 /* 55 vars */) = 0
+
 stat("/tmp", {st_mode=S_IFDIR|S_ISVTX|0777, st_size=4096, ...}) = 0
-chdir("/tmp")`
+
+**chdir("/tmp")**
