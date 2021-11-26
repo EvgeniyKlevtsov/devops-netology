@@ -44,7 +44,7 @@ openat(AT_FDCWD, "/usr/share/misc/magic.mgc", O_RDONLY) = 3
 
 >`vagrant@vagrant:~$ sudo opensnoop-bpfcc`
 
-PID    COMM               FD ERR PATH
+>PID    COMM               FD ERR PATH
 746    vminfo              4   0 /var/run/utmp
 567    dbus-daemon        -1   2 /usr/local/share/dbus-1/system-services
 567    dbus-daemon        20   0 /usr/share/dbus-1/system-services
