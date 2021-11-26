@@ -42,7 +42,7 @@ openat(AT_FDCWD, "/usr/share/misc/magic.mgc", O_RDONLY) = 3
 
 ### На какие файлы вы увидели вызовы группы  `open`  за первую секунду работы утилиты? Воспользуйтесь пакетом  `bpfcc-tools`  для Ubuntu 20.04.
 
-`vagrant@vagrant:~$ sudo opensnoop-bpfcc`
+>`vagrant@vagrant:~$ sudo opensnoop-bpfcc`
 
 PID    COMM               FD ERR PATH
 746    vminfo              4   0 /var/run/utmp
