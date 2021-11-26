@@ -42,9 +42,9 @@ openat(AT_FDCWD, "/usr/share/misc/magic.mgc", O_RDONLY) = 3
 
 ### На какие файлы вы увидели вызовы группы  `open`  за первую секунду работы утилиты? Воспользуйтесь пакетом  `bpfcc-tools`  для Ubuntu 20.04.
 
->`vagrant@vagrant:~$ sudo opensnoop-bpfcc`
-
->PID    COMM               FD ERR PATH
+`vagrant@vagrant:~$ sudo opensnoop-bpfcc`
+```
+PID    COMM               FD ERR PATH
 746    vminfo              4   0 /var/run/utmp
 567    dbus-daemon        -1   2 /usr/local/share/dbus-1/system-services
 567    dbus-daemon        20   0 /usr/share/dbus-1/system-services
@@ -52,17 +52,22 @@ openat(AT_FDCWD, "/usr/share/misc/magic.mgc", O_RDONLY) = 3
 567    dbus-daemon        20   0 /var/lib/snapd/dbus-1/system-services/
 381    systemd-udevd      14   0 /sys/fs/cgroup/unified/system.slice/systemd-udevd.service/cgroup.procs
 381    systemd-udevd      14   0 /sys/fs/cgroup/unified/system.slice/systemd-udevd.service/cgroup.threads
+```
 
 ### 6. Какой системный вызов использует  `uname -a`? Приведите цитату из man по этому системному вызову, где описывается альтернативное местоположение в  `/proc`, где можно узнать версию ядра и релиз ОС.
 В `man proc` на 4078 строке описано 
+```
 /proc/version
-              This string identifies the kernel version that is currently running.   It  includes  the  contents  of /proc/sys/kernel/ostype, /proc/sys/kernel/osrelease  and  /proc/sys/kernel/version. 
+This string identifies the kernel version that is currently running.   It  includes  the  contents  of /proc/sys/kernel/ostype, /proc/sys/kernel/osrelease  and  /proc/sys/kernel/version. 
+```
 
 ### 7. Чем отличается последовательность команд через ; и через && в bash? Например
-`root@netology1:~# test -d /tmp/some_dir; echo Hi`
-`Hi`
-`root@netology1:~# test -d /tmp/some_dir && echo Hi`
-`root@netology1:~#`
+```
+root@netology1:~# test -d /tmp/some_dir; echo Hi
+Hi
+root@netology1:~# test -d /tmp/some_dir && echo Hi
+root@netology1:~#
+```
 ### Есть ли смысл использовать в bash &&, если применить set -e?
 Так как `&&` - условный оператор, а `;` - разделитель последовательных команд. Отличие заключается в том, что параметры, введённые после `&&` будут выполнены лишь в случае возвращения кода выхода (0) команды до `&&`. В случае с `;` такое ограничение отсутствует. Поэтому `test -d /tmp/some_dir && echo Hi`,  `echo`  отработает только при успешном завершении команды `test`. 
 `set -e` - прерывает сессию при любом ненулевом значении исполняемых команд. В случае `&&`  вместе с `set -e`  вероятно не имеет смысла, так как при ошибке, выполнение команд прекратиться. 
@@ -96,7 +101,8 @@ openat(AT_FDCWD, "/usr/share/misc/magic.mgc", O_RDONLY) = 3
                Z    defunct ("zombie") process, terminated but not reaped by
                     its parent
 Список состояния процессов на моём компьютере.
->evgeniy@evgeniy-ms7788:~$ ps axu S | grep -c D
+```
+evgeniy@evgeniy-ms7788:~$ ps axu S | grep -c D
 8
 evgeniy@evgeniy-ms7788:~$ ps axu S | grep -c I
 48
@@ -114,5 +120,5 @@ evgeniy@evgeniy-ms7788:~$ ps axu S | grep -c X
 2
 evgeniy@evgeniy-ms7788:~$ ps axu S | grep -c Z
 3
-
+```
 Больше всего процессов `S - interruptible sleep`
