@@ -37,6 +37,17 @@ Paths: (4 available, best #4, table Default-IP-Routing-Table)
       Community: 20485:11154
       Last update: Thu Dec  9 05:31:10 2021
 ```
+### 2. Создайте dummy0 интерфейс в Ubuntu. Добавьте несколько статических маршрутов. Проверьте таблицу маршрутизации.
+```
+vagrant@vagrant:~$ ip r
+default via 10.0.2.2 dev eth0 proto dhcp src 10.0.2.15 metric 100 
+10.0.2.0/24 dev eth0 proto kernel scope link src 10.0.2.15 
+10.0.2.2 dev eth0 proto dhcp scope link src 10.0.2.15 metric 100 
+192.168.1.0/24 dev dummy0 proto kernel scope link src 192.168.1.150 
+192.168.10.0/24 dev dummy1 proto kernel scope link src 192.168.10.150 
+192.168.20.0/24 dev dummy2 proto kernel scope link src 192.168.20.150 
+```
+
 ### 3. Проверьте открытые TCP порты в Ubuntu, какие протоколы и приложения используют эти порты? Приведите несколько примеров.
 ```
 vagrant@vagrant:~$ sudo lsof -i tcp
