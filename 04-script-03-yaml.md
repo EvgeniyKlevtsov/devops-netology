@@ -59,10 +59,10 @@ while (1 == 1):
 		list[name] = ip
 	print('\n')
 #для работы с json-начало
-	with  open('task_2_obj.json', 'w') as  json_file:
+	with  open('task_2.json', 'w') as  json_file:
 		json.dump(list, json_file)
 #для работы с yml-начало
-	with  open('task_2_obj.yml', 'w') as  yaml_file:
+	with  open('task_2.yml', 'w') as  yaml_file:
 		yaml.dump(list, yaml_file, default_flow_style=False)
 	iteration=iteration+1
 	sleep(2)
