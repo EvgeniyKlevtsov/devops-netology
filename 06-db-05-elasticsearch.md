@@ -35,7 +35,7 @@
 Далее мы будем работать с данным экземпляром elasticsearch.
 
 Dockerfile
-```json
+```
 FROM centos:7
 ENV PATH=/usr/lib:/usr/lib/jvm/jre-11/bin:$PATH
 
