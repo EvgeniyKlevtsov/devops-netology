@@ -36,8 +36,7 @@
 В качестве результата приложите ссылку на файлы  `server.yaml`  и  `atlantis.yaml`.
 
 server.yaml
-```
-#server.yaml
+```#server.yaml
 repos:
 - id: github.com/EvgeniyKlevtsov/devops-lessons
 
