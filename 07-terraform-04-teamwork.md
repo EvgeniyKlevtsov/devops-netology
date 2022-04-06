@@ -37,6 +37,7 @@
 
 server.yaml
 ```
+#server.yaml
 repos:
 - id: github.com/EvgeniyKlevtsov/devops-lessons
 
