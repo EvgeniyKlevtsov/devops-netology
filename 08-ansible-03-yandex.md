@@ -76,3 +76,5 @@ server {
 Готово.
 
 10.  Готовый playbook выложите в свой репозиторий, поставьте тег  `08-ansible-03-yandex`  на фиксирующий коммит, в ответ предоставьте ссылку на него.
+
+[08-ansible-03-yandex](https://github.com/EvgeniyKlevtsov/hw-ansible/tree/main/08-ansible-03-yandex)
